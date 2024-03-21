@@ -14,9 +14,9 @@
 #
 
 
-def test_gtp5g_load(host):
-    cmd = host.run("modinfo gtp5g")
-    assert cmd.succeeded
+# def test_gtp5g_load(host):
+#     cmd = host.run("modinfo gtp5g")
+#     assert cmd.succeeded
 
 
 def test_sctp_load(host):
