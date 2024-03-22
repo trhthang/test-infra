@@ -50,18 +50,18 @@ gitea:
         async: 780
         poll: 0
 
-resource_backend:
-  enabled: true
-  k8s:
-    namespaces:
-      - backend-system
-  kpt:
-    packages:
-      - repo_uri: "{{ nephio_catalog_repo_uri }}"
-        pkg: nephio/optional/resource-backend
-        version: "{{ nephio_catalog_revision }}"
-        async: 780
-        poll: 0
+# resource_backend:
+#   enabled: true
+#   k8s:
+#     namespaces:
+#       - backend-system
+#   kpt:
+#     packages:
+#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
+#         pkg: nephio/optional/resource-backend
+#         version: "{{ nephio_catalog_revision }}"
+#         async: 780
+#         poll: 0
 
 cert_manager:
   enabled: true
