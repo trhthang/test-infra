@@ -145,7 +145,7 @@ nephio_stock_repos:
     directory: /infra/capi
     branch: "{{ nephio_catalog_branch }}"
 
-## Xóa configsync
+### Xóa configsync
 
 nephio:
   k8s:
