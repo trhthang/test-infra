@@ -19,6 +19,12 @@ gitea:
 nephio_catalog_repo_uri: https://github.com/trhthang/catalog.git
 nephio_catalog_branch: main
 
+nephio_stock_repos:
+  - name: catalog-infra-capi
+    repo: "{{ nephio_catalog_repo_uri }}"
+    directory: /infra/capi
+    branch: "{{ nephio_catalog_branch }}"
+
 # nephio_stock_repos:
 #   - name: catalog-distros-sandbox
 #     repo: "{{ nephio_catalog_repo_uri }}"
@@ -97,53 +103,46 @@ nephio_catalog_branch: main
 
 
 ## Chưa xóa configsync:
-# nephio:
-#   k8s:
-#     namespaces:
-#       - porch-fn-system
-#       - porch-system
-#       - nephio-system
-#       - config-management-monitoring
-#       - config-management-system
-#       - resource-group-system
-#   kpt:
-#     packages:
-#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
-#         pkg: nephio/core/porch
-#         version: main
-#         async: 480
-#         poll: 5
-#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
-#         pkg: nephio/core/nephio-operator
-#         version: main
-#         async: 480
-#         poll: 5
-#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
-#         pkg: nephio/core/argo-cd-core
-#         version: main
-#         async: 480
-#         poll: 5
-#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
-#         pkg: nephio/core/configsync
-#         version: main
-#         async: 240
-#         poll: 5
+nephio:
+  k8s:
+    namespaces:
+      - porch-fn-system
+      - porch-system
+      - nephio-system
+      - config-management-monitoring
+      - config-management-system
+      - resource-group-system
+  kpt:
+    packages:
+      - repo_uri: "{{ nephio_catalog_repo_uri }}"
+        pkg: nephio/core/porch
+        version: main
+        async: 480
+        poll: 5
+      - repo_uri: "{{ nephio_catalog_repo_uri }}"
+        pkg: nephio/core/nephio-operator
+        version: main
+        async: 480
+        poll: 5
+      - repo_uri: "{{ nephio_catalog_repo_uri }}"
+        pkg: nephio/core/argo-cd-core
+        version: main
+        async: 480
+        poll: 5
+      - repo_uri: "{{ nephio_catalog_repo_uri }}"
+        pkg: nephio/core/configsync
+        version: main
+        async: 240
+        poll: 5
 
-# nephio_webui:
-#   k8s:
-#     namespace: nephio-webui
-#   kpt:
-#     package:
-#       repo_uri: "{{ nephio_catalog_repo_uri }}"
-#       pkg: nephio/optional/webui
-#       version: main
-
-
-nephio_stock_repos:
-  - name: catalog-infra-capi
-    repo: "{{ nephio_catalog_repo_uri }}"
-    directory: /infra/capi
-    branch: "{{ nephio_catalog_branch }}"
+nephio_webui:
+  k8s:
+    namespace: nephio-webui
+  kpt:
+    package:
+      repo_uri: "{{ nephio_catalog_repo_uri }}"
+      pkg: nephio/optional/webui
+      version: main
 
 ### Xóa configsync
 
@@ -185,33 +184,33 @@ nephio_stock_repos:
 
 # xóa nephio controller:
 
-nephio:
-  k8s:
-    namespaces:
-      - porch-fn-system
-      - porch-system
-      - nephio-system
-      - config-management-monitoring
-      - config-management-system
-      - resource-group-system
-  kpt:
-    packages:
-      - repo_uri: "{{ nephio_catalog_repo_uri }}"
-        pkg: nephio/core/porch
-        version: main
-        async: 480
-        poll: 5
-      - repo_uri: "{{ nephio_catalog_repo_uri }}"
-        pkg: nephio/core/argo-cd-core
-        version: main
-        async: 480
-        poll: 5
+# nephio:
+#   k8s:
+#     namespaces:
+#       - porch-fn-system
+#       - porch-system
+#       - nephio-system
+#       - config-management-monitoring
+#       - config-management-system
+#       - resource-group-system
+#   kpt:
+#     packages:
+#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
+#         pkg: nephio/core/porch
+#         version: main
+#         async: 480
+#         poll: 5
+#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
+#         pkg: nephio/core/argo-cd-core
+#         version: main
+#         async: 480
+#         poll: 5
 
-nephio_webui:
-  k8s:
-    namespace: nephio-webui
-  kpt:
-    package:
-      repo_uri: "{{ nephio_catalog_repo_uri }}"
-      pkg: nephio/optional/webui
-      version: main
+# nephio_webui:
+#   k8s:
+#     namespace: nephio-webui
+#   kpt:
+#     package:
+#       repo_uri: "{{ nephio_catalog_repo_uri }}"
+#       pkg: nephio/optional/webui
+#       version: main
