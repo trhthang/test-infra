@@ -147,6 +147,44 @@ nephio_stock_repos:
 
 ### Xóa configsync
 
+# nephio:
+#   k8s:
+#     namespaces:
+#       - porch-fn-system
+#       - porch-system
+#       - nephio-system
+#       - config-management-monitoring
+#       - config-management-system
+#       - resource-group-system
+#   kpt:
+#     packages:
+#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
+#         pkg: nephio/core/porch
+#         version: main
+#         async: 480
+#         poll: 5
+#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
+#         pkg: nephio/core/nephio-operator
+#         version: main
+#         async: 480
+#         poll: 5
+#       - repo_uri: "{{ nephio_catalog_repo_uri }}"
+#         pkg: nephio/core/argo-cd-core
+#         version: main
+#         async: 480
+#         poll: 5
+
+# nephio_webui:
+#   k8s:
+#     namespace: nephio-webui
+#   kpt:
+#     package:
+#       repo_uri: "{{ nephio_catalog_repo_uri }}"
+#       pkg: nephio/optional/webui
+#       version: main
+
+# xóa nephio controller:
+
 nephio:
   k8s:
     namespaces:
@@ -160,11 +198,6 @@ nephio:
     packages:
       - repo_uri: "{{ nephio_catalog_repo_uri }}"
         pkg: nephio/core/porch
-        version: main
-        async: 480
-        poll: 5
-      - repo_uri: "{{ nephio_catalog_repo_uri }}"
-        pkg: nephio/core/nephio-operator
         version: main
         async: 480
         poll: 5
